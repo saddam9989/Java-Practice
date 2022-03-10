@@ -1,0 +1,22 @@
+package com.datatypes.java;
+
+public class Example1 {
+	
+
+	public static void main(String[] args) {
+		
+		
+		
+		byte a = (byte)400;  //  Narrowing (typecasting)
+		byte b =-90;
+		
+		int c= b ;    // widening 
+		
+		float d = 10.9f;
+		double e= 12.8;
+		
+		System.out.println(a);
+
+	}
+
+}

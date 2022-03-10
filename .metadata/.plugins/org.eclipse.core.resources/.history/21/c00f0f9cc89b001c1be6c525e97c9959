@@ -1,0 +1,18 @@
+package com.controls.java;
+
+public class IfStatement {
+
+	public static void main(String[] args) {
+		
+		int x=100;
+		int y=200;
+		int c= 150;
+		
+		if(x+y >= c) {
+			
+			System.out.println(x + " + " + y + " is greater than " + c);
+		}
+
+	}
+
+}

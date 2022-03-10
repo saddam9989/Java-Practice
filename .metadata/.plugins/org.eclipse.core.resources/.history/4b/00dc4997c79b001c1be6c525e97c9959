@@ -1,0 +1,28 @@
+package com.datatypes.java;
+
+public class Example1 {
+	
+
+	public static void main(String[] args) {
+		
+		
+		
+		byte a = (byte) 400;  //  Narrowing (typecasting)   converting integer to byte
+		byte b =-90;
+		
+		int c= b ;    // widening 
+		
+		float d = 10.9f;
+		float x=c;
+		double e= 12.8;
+		char f= 'a';
+		boolean g = false;
+		
+		System.out.println(a);
+		System.out.println(c);
+        System.out.println(f);
+        System.out.println(g);
+        System.out.println(x);
+	}
+
+}

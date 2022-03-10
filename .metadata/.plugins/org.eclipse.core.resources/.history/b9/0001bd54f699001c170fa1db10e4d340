@@ -1,0 +1,36 @@
+package com.practice.java;
+
+public class Animals {
+	
+		public void eat(){
+		System.out.println("Animals is eating different ways");	
+		}
+
+		
+		public class Cow extends Animals{
+			public void eat(){
+				System.out.println("cow is eating different like chew & swallow");	
+				}
+		}
+		
+		
+		public class Snake extends Animals{
+			public void eat(){
+				System.out.println("snake is eating different like swallow");	
+				}
+		}
+
+		public class Crockdile extends Animals{
+			public void eat(){
+				System.out.println("Crockdile is eating different like bite");	
+				}
+		}
+		
+		
+		public static void main(String[] args) {
+			
+			Animals animal= new Animals();
+			
+			System.out.println(animal);
+		}
+}

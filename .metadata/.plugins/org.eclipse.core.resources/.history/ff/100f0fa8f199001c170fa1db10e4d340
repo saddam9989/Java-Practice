@@ -1,0 +1,32 @@
+package com.practice.java;
+
+public class ObjectCreation {
+	
+	String name;
+	
+	
+	// default constructor
+	public ObjectCreation() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	
+    // custome constructor
+	public ObjectCreation(String name) {
+		super();
+		this.name = name;
+	}
+
+
+
+
+	public static void main(String[] args) {
+		
+		ObjectCreation object =  new ObjectCreation(); 
+		
+		
+	}
+
+}

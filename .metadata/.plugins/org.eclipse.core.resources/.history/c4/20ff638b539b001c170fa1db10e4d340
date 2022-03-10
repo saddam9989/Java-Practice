@@ -1,0 +1,15 @@
+package com.datatypes.java;
+
+public class Example1 {
+	
+
+	public static void main(String[] args) {
+		
+		short a =128;
+		byte b =-90;
+		
+		System.out.println(a>b);
+
+	}
+
+}

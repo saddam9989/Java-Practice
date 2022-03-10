@@ -1,0 +1,5 @@
+package com.multilevelinheritance.java;
+
+public class Animal {
+
+}

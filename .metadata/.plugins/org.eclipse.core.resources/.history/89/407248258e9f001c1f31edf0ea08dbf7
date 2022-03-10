@@ -1,0 +1,81 @@
+package com.encapsulation.com;
+
+public class Account {
+	
+	private String name;
+	private long account_number;
+	private String email;
+	private long mobile_number;
+	
+	
+
+	public String getName() {
+		return name;
+	}
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
+	public long getAccount_number() {
+		return account_number;
+	}
+
+
+
+	public void setAccount_number(long account_number) {
+		this.account_number = account_number;
+	}
+
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+
+	public long getMobile_number() {
+		return mobile_number;
+	}
+
+
+
+	public void setMobile_number(long mobile_number) {
+		this.mobile_number = mobile_number;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Account [name=" + name + ", account_number=" + account_number + ", email=" + email + ", mobile_number="
+				+ mobile_number + "]";
+	}
+
+
+
+	public static void main(String[] args) {
+		
+		Account account=new Account();
+		
+		account.setName("saddam hussain");
+		account.setAccount_number(12345678901l);
+		account.setEmail("saddam@gamil.com");
+		account.setMobile_number(9989294551l);
+		
+	//	System.out.println(account.getName() + " " + account.getAccount_number() + " "+ account.getEmail() + " " + account.getMobile_number());
+System.out.println(account.toString());
+	}
+
+}

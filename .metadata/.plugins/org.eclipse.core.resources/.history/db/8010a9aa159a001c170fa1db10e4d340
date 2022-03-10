@@ -1,0 +1,11 @@
+package com.practice.java;
+
+public class StringBufferConcept {
+	
+	public static void main(String[] args) {
+		StringBuilder sb=new StringBuilder("Hello");
+		System.out.println(sb.append(" saddam "));
+		System.out.println(sb.insert(0," Welcome "));
+	}
+
+}

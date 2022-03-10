@@ -1,0 +1,30 @@
+package com.practice.java;
+
+public class ObjectCreation {
+	
+	String name="saddam";
+	
+	
+	// default constructor
+	public ObjectCreation() {
+		super();
+		System.out.println("default constructor");
+	}
+	
+	
+    // custome constructor
+	public ObjectCreation(String name) {
+		name=name;
+		//this.name = name;
+		System.out.println("custom  constructor is defined by " + name);
+	}
+
+
+	public static void main(String[] args) {
+		
+		ObjectCreation object =  new ObjectCreation(); 
+		ObjectCreation object1 = new ObjectCreation("saddam hussain");
+		
+	}
+
+}
