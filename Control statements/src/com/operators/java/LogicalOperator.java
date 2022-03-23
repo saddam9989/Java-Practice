@@ -1,17 +1,16 @@
-package com.operators.java;
 
 public class LogicalOperator {
 	
-
-
-		   public static void main(String args[]) {
-		      boolean a = true;
-		      boolean b = false;
-
-		      System.out.println("a && b = " + (a&&b));
-		      System.out.println("a || b = " + (a||b) );
-		      System.out.println("!(a && b) = " + !(a && b));
-		   }
+	public static void main(String args[]) {
+	
+		int a = 10;
 		
-
+		int b = 5;
+		
+		int c = 20;
+		
+		System.out.println(a > b && a < c);// true && true = true
+		
+		System.out.println(a < b || a < c);// false || true = true
+	}
 }
