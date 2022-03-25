@@ -1,16 +1,18 @@
 package com.recipes.services;
 
+import java.util.List;
+
 import com.recipes.entity.Recipe;
 
 public interface IRecipeService {
 
-	public void getAll();
+	public List<Recipe> getAll();
 
-	public void get(String id);
+	public Recipe get(String id);
 
-	public void create(Recipe recipe);
+	public Recipe create(Recipe recipe);
 
-	public void update(Recipe recipe);
+	public Recipe update(Recipe recipe);
 
 	public void delete(String id);
 

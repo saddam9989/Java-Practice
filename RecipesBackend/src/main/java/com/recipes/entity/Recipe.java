@@ -11,7 +11,7 @@ import javax.persistence.Id;
 public class Recipe {
      
 	@Id
-	private int id;
+	private String id;
 	
 	@Column
 	private String name;
