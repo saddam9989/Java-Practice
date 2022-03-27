@@ -33,8 +33,7 @@ public class DBinti implements CommandLineRunner {
 		@Autowired
 		private IAdminRepository adminRepo;
 		
-		@Autowired
-		private ICustomerRepository custRepo;
+		
 		
 		@Autowired
 		private IFinanceVerificationRepository financeRepo;

@@ -3,17 +3,22 @@ package com.recipes.services;
 import java.util.List;
 
 import com.recipes.entity.Recipe;
+import com.recipes.exception.RecipeNotFoundException;
 
 public interface IRecipeService {
 
-	public List<Recipe> getAll();
+	public List<Recipe> recipesList();
 
-	public Recipe get(String id);
+	public Recipe addRecipe(Recipe recipe);
 
-	public Recipe create(Recipe recipe);
+	public Recipe updateRecipe(String id,Recipe recipe);
 
-	public Recipe update(Recipe recipe);
+	public void deleteRecipe(String id);
+	
+	public Recipe findByRecipeId(String recipeId);
+	
+	
 
-	public void delete(String id);
+
 
 }
