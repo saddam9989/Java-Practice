@@ -6,7 +6,9 @@ import org.springframework.stereotype.Repository;
 import com.recipes.entity.Recipe;
 
 @Repository
-public interface IRecipeRepository extends JpaRepository<Recipe, String>{
+public interface IRecipeRepository extends JpaRepository<Recipe, Integer>{
+
+	
 
 	
 

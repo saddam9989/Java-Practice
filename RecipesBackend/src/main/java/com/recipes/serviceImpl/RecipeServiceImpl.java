@@ -34,37 +34,22 @@ public class RecipeServiceImpl implements IRecipeService {
 		
 	}
 
-	public Recipe updateRecipe(String id, Recipe recipe)  {
+	public void updateRecipe(Recipe recipe)  {
 		
-		Optional<Recipe> currentRecipe = recipeRepository.findById(id);
+		recipeRepository.save(recipe);
 		
-		if(currentRecipe.isPresent()) {
-			Recipe _recipe = currentRecipe.get();
-			_recipe.setName(recipe.getName());
-			_recipe.setVegan(recipe.isVegan());
-			_recipe.setInstructions(recipe.getInstructions());
-			_recipe.setServings(recipe.getServings());
-			_recipe.setCreated(recipe.getCreated());
-			_recipe.setIngredients(recipe.getIngredients());
-			
-			
-			return recipeRepository.save(_recipe);
-		}
 		
-		return recipeRepository.save(recipe);
 	}
 
 	
 	@Override
-	public void deleteRecipe(String id) {
+	public void deleteRecipe(int recipeId) {
 		
-		recipeRepository.deleteById(id);
+		recipeRepository.deleteById(recipeId);
 	}
+
 	
-	@Override
-	public Recipe findByRecipeId(String recipeId) {
-		return recipeRepository.getOne(recipeId);
-		
-	}
+	
+	
 
 }

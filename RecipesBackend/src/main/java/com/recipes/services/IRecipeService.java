@@ -11,11 +11,11 @@ public interface IRecipeService {
 
 	public Recipe addRecipe(Recipe recipe);
 
-	public Recipe updateRecipe(String id,Recipe recipe);
+	public void updateRecipe(Recipe recipe);
 
-	public void deleteRecipe(String id);
+	public void deleteRecipe(int recipeId);
 	
-	public Recipe findByRecipeId(String recipeId);
+	// public int findByRecipeId(int recipeId);
 	
 	
 

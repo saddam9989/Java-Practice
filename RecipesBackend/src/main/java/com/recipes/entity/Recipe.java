@@ -21,7 +21,7 @@ public class Recipe {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	private int recipeId;
 
 	@Column
 	private String name;
@@ -48,10 +48,10 @@ public class Recipe {
 		super();
 	}
 
-	public Recipe(String id, String name, LocalDateTime created, boolean vegan, int servings, String instructions,
+	public Recipe(String name, LocalDateTime created, boolean vegan, int servings, String instructions,
 			List<Ingredients> ingredients) {
 		super();
-		this.id = id;
+		
 		this.name = name;
 		this.created = created;
 		this.vegan = vegan;
@@ -60,12 +60,14 @@ public class Recipe {
 		this.ingredients = ingredients;
 	}
 
-	public String getId() {
-		return id;
+
+	
+	public int getRecipeId() {
+		return recipeId;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setRecipeId(int recipeId) {
+		this.recipeId = recipeId;
 	}
 
 	public String getName() {
@@ -116,11 +118,6 @@ public class Recipe {
 		this.ingredients = ingredients;
 	}
 
-	@Override
-	public String toString() {
-		return "Recipe [id=" + id + ", name=" + name + ", created=" + created + ", vegan=" + vegan + ", servings="
-				+ servings + ", instructions=" + instructions + ", ingredients=" + ingredients + "]";
-	}
 	
 	
  

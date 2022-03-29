@@ -1,7 +1,7 @@
 package com.recipes.controllers;
 
 import java.util.List;
-
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,60 +34,62 @@ public class RecipeController {
 	@GetMapping("/allRecipes")
 	public ResponseEntity<List<Recipe>> getAllRecipes() throws RecipeNotFoundException {
 
-		if (recipeService.recipesList() == null) {
+		if(!recipeRepository.findAll().isEmpty()) {
 			
-			throw new RecipeNotFoundException("No Recipes");
+			return new ResponseEntity<>(recipeService.recipesList(), HttpStatus.OK);
 		
 		}
 		else {
 		
-			return new ResponseEntity<>(recipeService.recipesList(), HttpStatus.OK);
+			throw new RecipeNotFoundException("No Recipes");
+			
 		}
 	}
 
 	@PostMapping("/addRecipe")
 	public ResponseEntity<?> createRecipe(@RequestBody Recipe recipe) throws RecipeNotFoundException {
 
-		if(recipeRepository.existsById(recipe.getId())){
+		recipeService.addRecipe(recipe);
 		
-			throw new RecipeNotFoundException("Recipe is exists in the list");
+	 return new ResponseEntity<>(" Recipe is added in the list ", HttpStatus.CREATED);
 			
-
-		} else {
-			return new ResponseEntity<>(recipeService.addRecipe(recipe) + " Your Recipe is Created ", HttpStatus.CREATED);
-			
-		}
+		
 
 	}
 
-	@PutMapping("/updateRecipe")
-	public ResponseEntity<?> updateRecipe(@PathVariable String id, @RequestBody Recipe recipe) throws RecipeNotFoundException {
+	@PutMapping("/updateRecipe/{recipeId}")
+	public ResponseEntity<?> updateRecipe(@RequestBody Recipe recipe) throws RecipeNotFoundException {
+		
+         if(recipeRepository.existsById(recipe.getRecipeId())) {
+        	 
+        	 recipeService.updateRecipe(recipe);
+        	 
+        	return  new ResponseEntity<>(" Recipe Id " + recipe.getRecipeId() + " is updated successfully ",HttpStatus.ACCEPTED);
+        	 
+         }else {
+        	 throw new RecipeNotFoundException("Recipe Id " + recipe.getRecipeId() + " is not found ");
+         }
+        	 
+         
 
-		if (recipeRepository.existsById(id)) {
-			
-			recipeService.updateRecipe(id, recipe);
-			
-			return new ResponseEntity<>("Recipe id : " + id + " updated successfully", HttpStatus.ACCEPTED);
-		} 
-		else {
-			
-			throw new RecipeNotFoundException("Recipe id : " + id + " is not found ");
-		}
+		
 	}
 
-	@DeleteMapping("/deleteMapping")
-	public ResponseEntity<String> deleteRecipe(@PathVariable String recipeId) throws RecipeNotFoundException {
+	@DeleteMapping("/deleteMapping/{recipeId}")
+	public ResponseEntity<String> deleteRecipe(@PathVariable("recipeId") int recipeId) throws RecipeNotFoundException {
 		
-		 Recipe recipe = recipeService.findByRecipeId(recipeId);
+		Optional<Recipe> opt=recipeRepository.findById(recipeId);
 		 
-		 if(recipe == null) {
-			 throw new RecipeNotFoundException(" Recipe id : "+ recipeId + " is not found ");
+		 if(opt.isPresent()) {
+			
+			  recipeService.deleteRecipe(recipeId);
+			 
+			 return new ResponseEntity<>("Recipe id : " + recipeId + " is deleted successfully", HttpStatus.OK);
 		 }
 		 else {
 			 
-		 recipeService.deleteRecipe(recipeId);
+			 throw new RecipeNotFoundException(" Recipe id : "+ recipeId + " is not found ");
 		 
-		 return new ResponseEntity<>("Recipe id : " + recipeId + " deleted successfully", HttpStatus.OK);
 	}
 	}
 
