@@ -32,7 +32,7 @@ public class RecipeController {
 	IRecipeRepository recipeRepository;
 
 	@GetMapping("/allRecipes")
-	public ResponseEntity<List<Recipe>> getAllRecipes() throws RecipeNotFoundException {
+	public ResponseEntity<?> getAllRecipes() throws RecipeNotFoundException {
 
 		if(!recipeRepository.findAll().isEmpty()) {
 			
@@ -41,13 +41,13 @@ public class RecipeController {
 		}
 		else {
 		
-			throw new RecipeNotFoundException("No Recipes");
+			throw new RecipeNotFoundException("No recipes in the list ");
 			
 		}
 	}
 
 	@PostMapping("/addRecipe")
-	public ResponseEntity<?> createRecipe(@RequestBody Recipe recipe) throws RecipeNotFoundException {
+	public ResponseEntity<?> createRecipe(@RequestBody Recipe recipe)  {
 
 		recipeService.addRecipe(recipe);
 		
@@ -58,7 +58,7 @@ public class RecipeController {
 	}
 
 	@PutMapping("/updateRecipe/{recipeId}")
-	public ResponseEntity<?> updateRecipe(@RequestBody Recipe recipe) throws RecipeNotFoundException {
+	public ResponseEntity<?> updateRecipe(@RequestBody Recipe recipe) throws RecipeNotFoundException  {
 		
          if(recipeRepository.existsById(recipe.getRecipeId())) {
         	 

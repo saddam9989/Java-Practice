@@ -10,7 +10,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 
@@ -38,30 +40,27 @@ public class Recipe {
 	@Column
 	private String instructions;
 	
-	@ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@Column
-	private List<Ingredients> ingredients;
-	
+	private String ingredientsList;
 	
 
 	public Recipe() {
 		super();
 	}
 
+
 	public Recipe(String name, LocalDateTime created, boolean vegan, int servings, String instructions,
-			List<Ingredients> ingredients) {
+			String ingredientsList) {
 		super();
-		
 		this.name = name;
 		this.created = created;
 		this.vegan = vegan;
 		this.servings = servings;
 		this.instructions = instructions;
-		this.ingredients = ingredients;
+		this.ingredientsList = ingredientsList;
 	}
 
 
-	
 	public int getRecipeId() {
 		return recipeId;
 	}
@@ -110,15 +109,17 @@ public class Recipe {
 		this.instructions = instructions;
 	}
 
-	public List<Ingredients> getIngredients() {
-		return ingredients;
+
+	public String getIngredientsList() {
+		return ingredientsList;
 	}
 
-	public void setIngredients(List<Ingredients> ingredients) {
-		this.ingredients = ingredients;
+
+	public void setIngredientsList(String ingredientsList) {
+		this.ingredientsList = ingredientsList;
 	}
 
-	
-	
+
+
  
 }
