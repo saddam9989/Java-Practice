@@ -25,8 +25,11 @@ public class TestArrayList {
 	 list.add("Rahul");
 	 list.add("Naveen");
 	 list.add("Likesh");
+	 list.add(null);
+	 list.add(null);
 	 
-	 System.out.println(list.size());
+	 System.out.println("List of the size is : " + list.size());
+	 System.out.println();
 	 
 	
 	 for(String str : list) {
@@ -40,7 +43,8 @@ public class TestArrayList {
 	 
 	 
 	 
-	 System.out.println(list.size());
+	 System.out.println("List of the size after added some data : " + list.size());
+	 System.out.println();
 	 
 	 
 	 Iterator<String> itr =list.iterator();
