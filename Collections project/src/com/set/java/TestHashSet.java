@@ -13,11 +13,11 @@ public class TestHashSet {
 		// Set cannot store duplicate values 
 		
 		
-		Set<Integer> set=new HashSet<>();
+		//Set<Integer> set=new HashSet<>();        // unordered list
 		
-		//Set<Integer> set= new LinkedHashSet<>();  
+		Set<Integer> set= new LinkedHashSet<>();  // ordered list
 		
-	    //Set<Integer> set= new TreeSet<>();   // Treeset cannot store null data
+	    //Set<Integer> set= new TreeSet<>();   // Tree set cannot store null data 
 		
 		set.add(6);
 		set.add(2);
