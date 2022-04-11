@@ -47,14 +47,21 @@ public class RecipeController {
 	}
 
 	@PostMapping("/addRecipe")
-	public ResponseEntity<?> createRecipe(@RequestBody Recipe recipe)  {
+	public ResponseEntity<?> createRecipe(@RequestBody Recipe recipe) throws RecipeNotFoundException  {
 
+		Optional<Recipe>  opt=recipeRepository.findByName(recipe.getName());
+		
+		if(opt.isPresent()) {
+			 throw new RecipeNotFoundException("Recipe is already created ");
+			
+		}else {
+			
 		recipeService.addRecipe(recipe);
 		
 	 return new ResponseEntity<>(" Recipe is added in the list ", HttpStatus.CREATED);
 			
 		
-
+		}
 	}
 
 	@PutMapping("/updateRecipe/{recipeId}")

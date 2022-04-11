@@ -1,22 +1,27 @@
 package com.recipes.entity;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
+
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.format.annotation.DateTimeFormat;
+
+
+
 
 
 
@@ -35,7 +40,7 @@ public class Recipe {
 	private LocalDateTime created;
 
 	@Column
-	private boolean vegan;
+	private boolean veg;
 
 	@Column
 	private int servings;
@@ -45,7 +50,7 @@ public class Recipe {
 	
 	@OneToMany(targetEntity = Ingredients.class, cascade=CascadeType.ALL)
 	@JoinColumn(name="RI_fk",referencedColumnName = "recipeId")
-	private List<Ingredients> ingredients;
+	private List<Ingredients> ingredientsList;
 	
 
 	public Recipe() {
@@ -55,15 +60,15 @@ public class Recipe {
 
 
 	public Recipe( String name, LocalDateTime created, boolean vegan, int servings, String instructions,
-			List<com.recipes.entity.Ingredients> ingredients) {
+			List<Ingredients> ingredientsList) {
 		super();
 		
 		this.name = name;
 		this.created = created;
-		this.vegan = vegan;
+		this.veg = vegan;
 		this.servings = servings;
 		this.instructions = instructions;
-		this.ingredients = ingredients;
+		this.ingredientsList = ingredientsList;
 	}
 
 
@@ -94,12 +99,14 @@ public class Recipe {
 		this.created = created;
 	}
 
-	public boolean isVegan() {
-		return vegan;
+
+	public boolean isVeg() {
+		return veg;
 	}
 
-	public void setVegan(boolean vegan) {
-		this.vegan = vegan;
+
+	public void setVeg(boolean veg) {
+		this.veg = veg;
 	}
 
 	public int getServings() {
@@ -120,15 +127,19 @@ public class Recipe {
 
 
 
-	public List<Ingredients> getIngredients() {
-		return ingredients;
+	public List<Ingredients> getIngredientsList() {
+		return ingredientsList;
 	}
 
 
 
-	public void setIngredients(List<Ingredients> ingredients) {
-		this.ingredients = ingredients;
+	public void setIngredientsList(List<Ingredients> ingredientsList) {
+		this.ingredientsList = ingredientsList;
 	}
+
+
+
+	
 
 
  
