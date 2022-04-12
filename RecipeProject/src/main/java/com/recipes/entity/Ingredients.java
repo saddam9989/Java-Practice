@@ -1,5 +1,6 @@
 package com.recipes.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +17,8 @@ public class Ingredients {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@JsonIgnore
 	private int id;
+	
+	@Column
 	private String ingredientsList;
 	
 	public Ingredients() {
@@ -44,8 +47,5 @@ public class Ingredients {
 	public void setIngredientsList(String ingredientsList) {
 		this.ingredientsList = ingredientsList;
 	}
-	
-	
-
 	
 }

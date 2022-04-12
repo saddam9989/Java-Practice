@@ -1,7 +1,8 @@
 package com.recipes.entity;
 
+
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,14 +16,6 @@ import javax.persistence.JoinColumn;
 
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Pattern;
-
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.format.annotation.DateTimeFormat;
-
-
-
-
 
 
 @Entity
@@ -37,6 +30,7 @@ public class Recipe {
 	private String name;
 
 	
+    @Column
 	private LocalDateTime created;
 
 	@Column
@@ -59,19 +53,17 @@ public class Recipe {
 
 
 
-	public Recipe( String name, LocalDateTime created, boolean vegan, int servings, String instructions,
+	public Recipe(int recipeId, String name, LocalDateTime created, boolean veg, int servings, String instructions,
 			List<Ingredients> ingredientsList) {
 		super();
-		
+		this.recipeId = recipeId;
 		this.name = name;
 		this.created = created;
-		this.veg = vegan;
+		this.veg = veg;
 		this.servings = servings;
 		this.instructions = instructions;
 		this.ingredientsList = ingredientsList;
 	}
-
-
 
 
 
