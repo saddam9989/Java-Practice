@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -21,15 +22,20 @@ public class Ingredients {
 	@Column
 	private String ingredientsList;
 	
+	
+	
 	public Ingredients() {
 		super();
 	}
 
 
 	public Ingredients(String ingredientsList) {
-		
+		super();
 		this.ingredientsList = ingredientsList;
+		
 	}
+
+
 
 
 	public int getId() {

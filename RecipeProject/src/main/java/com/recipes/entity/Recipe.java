@@ -1,6 +1,10 @@
+
+
+
 package com.recipes.entity;
 
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import java.util.List;
@@ -17,6 +21,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+
+
 
 @Entity
 @Table(name = "Recipe")
@@ -31,7 +41,8 @@ public class Recipe {
 
 	
     @Column
-	private LocalDateTime created;
+    @JsonFormat
+	private LocalDate created;
 
 	@Column
 	private boolean veg;
@@ -53,15 +64,19 @@ public class Recipe {
 
 
 
-	public Recipe(int recipeId, String name, LocalDateTime created, boolean veg, int servings, String instructions,
-			List<Ingredients> ingredientsList) {
+	public Recipe( String name, LocalDate created, boolean veg, int servings, String instructions) {
 		super();
-		this.recipeId = recipeId;
+		
 		this.name = name;
 		this.created = created;
 		this.veg = veg;
 		this.servings = servings;
 		this.instructions = instructions;
+	
+	}
+
+	public Recipe(List<Ingredients> ingredientsList) {
+		super();
 		this.ingredientsList = ingredientsList;
 	}
 
@@ -83,11 +98,11 @@ public class Recipe {
 		this.name = name;
 	}
 
-	public LocalDateTime getCreated() {
+	public LocalDate getCreated() {
 		return created;
 	}
 
-	public void setCreated(LocalDateTime created) {
+	public void setCreated(LocalDate created) {
 		this.created = created;
 	}
 

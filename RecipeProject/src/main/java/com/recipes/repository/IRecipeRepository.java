@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.recipes.entity.Ingredients;
 import com.recipes.entity.Recipe;
 
 
@@ -16,6 +17,8 @@ public interface IRecipeRepository extends JpaRepository<Recipe, Integer>{
 
 	@Query("SELECT r from Recipe r WHERE r.name=:name ")
 	 public Optional<Recipe> findByName(@Param("name") String name);
+
+
 	
 
 	
