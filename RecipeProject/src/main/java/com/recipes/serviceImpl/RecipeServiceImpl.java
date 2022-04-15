@@ -48,6 +48,14 @@ public class RecipeServiceImpl implements IRecipeService {
 		recipeRepository.deleteById(recipeId);
 	}
 
+	@Override
+	public Recipe getRecipe(int recipeId) {
+		
+		return recipeRepository.findById(recipeId).get();
+		
+		
+	}
+
 	
 	
 	

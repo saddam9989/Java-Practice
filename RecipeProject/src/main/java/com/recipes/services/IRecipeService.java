@@ -15,7 +15,7 @@ public interface IRecipeService {
 
 	public void deleteRecipe(int recipeId);
 	
-	// public int findByRecipeId(int recipeId);
+	public Recipe getRecipe(int recipeId);
 	
 	
 
