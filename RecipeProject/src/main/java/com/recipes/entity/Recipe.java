@@ -64,7 +64,8 @@ public class Recipe {
 
 
 
-	public Recipe( String name, LocalDate created, boolean veg, int servings, String instructions) {
+	public Recipe( String name, LocalDate created, boolean veg, int servings, String instructions,
+			List<Ingredients> ingredientsList) {
 		super();
 		
 		this.name = name;
@@ -72,14 +73,8 @@ public class Recipe {
 		this.veg = veg;
 		this.servings = servings;
 		this.instructions = instructions;
-	
-	}
-
-	public Recipe(List<Ingredients> ingredientsList) {
-		super();
 		this.ingredientsList = ingredientsList;
 	}
-
 
 
 	public int getRecipeId() {
